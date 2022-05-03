@@ -22,4 +22,7 @@ urlpatterns = [
     path('', views.showmain, name="showmain"),
     path('writepage/', views.showwrite, name="showwrite"),
     path('historypage/', views.showhistory, name="showhistory"),
+    path('photopage/', views.showphoto, name="showphoto"),
+    path('characterpage/', views.showcharacter, name="showcharacter"),
+    path('hobbypage/', views.showhobby, name="showhobby"),
 ]

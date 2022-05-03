@@ -13,3 +13,15 @@ def showwrite(request):
 
 def showhistory(request):
     return render(request, 'main/historypage.html')
+
+
+def showphoto(request):
+    return render(request, 'main/photopage.html')
+
+
+def showcharacter(request):
+    return render(request, 'main/characterpage.html')
+
+
+def showhobby(request):
+    return render(request, 'main/hobbypage.html')
