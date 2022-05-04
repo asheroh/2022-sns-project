@@ -15,14 +15,17 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/show.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/photo.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/hobby.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    {% include 'shared/_navbar.html' %}
 
-    <div class="container">
+    <div class="container" style="height: 100vh; max-width: 100%;">
+        {% include 'shared/_navbar.html' %}
         {% block content %}
-
+        
         {% endblock %}
     </div>
 </body>
