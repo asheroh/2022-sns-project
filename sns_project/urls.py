@@ -25,4 +25,7 @@ urlpatterns = [
     path('photopage/', views.showphoto, name="showphoto"),
     path('characterpage/', views.showcharacter, name="showcharacter"),
     path('hobbypage/', views.showhobby, name="showhobby"),
+    path('<int:id>', views.detail, name="detail"),
+    path('new/', views.new, name="new"),
+    path('create/', views.create, name="create"),
 ]
