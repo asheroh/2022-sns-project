@@ -5,11 +5,11 @@
 {% block content %}
     <div class="title">
         <!--<label for="exampleDataList" class="form-label"><h1>아기사자 검색</h1></label>-->
-        <div>
+        <div class="mainword">
             <h1>Hello, LION</h1>
         </div>
         <div class="box">
-            <input type="search" id="search" style="width: 1000px; height: 75px;" placeholder="아기사자 검색" />
+            <input type="search" id="search" style="width: 750px; height: 50px;" placeholder="아기사자 검색" />
         </div>
         <hr>
         <!--<input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="내가 궁금하다면?">
@@ -25,29 +25,21 @@
         <br>
     </div>
 
-    <h2><a href="{%url 'new'%}">글쓰기</a></h2>
+    <h5><a href="{%url 'new'%}">글쓰기</a></h5>
     
-    <h2>글 목록</h2>
+    <h5>글 목록</h5>
 
     <div>
-        {% for blog in blogs %}
+        {% for post in posts %}
         <div>
-            <h3>{{blog.title}}</h3>
-            {{blog.writer}}<br>
-            {{blog.summary}}
-            <a href="{%url 'detail' blog.id %}">...자세히</a>
+            <h6>{{post.title}}</h6>
+            {{post.writer}}<br>
+            {{post.summary}}
+            <a href="{%url 'detail' post.id %}">...자세히</a>
             <br>
         </div>
         {%endfor%}
     </div>
-    
-    <!--u
-    <div class="name">
-        <p>융합에너지신소재공학과</p>        
-        <p>17학번 공룡<img class="dino" src="{% static 'images/dino.png' %}"/></p>
-        <p>1998.07.23 경남 창원 출생</p>
-    </div>
-    -->    
     
     <br><br>
     
@@ -59,13 +51,12 @@
             <p class="card-text">"FE Developer, CEO"</p>
             <a href="#" class="btn btn-primary">Back to Top</a>
         </div>
-    </div>    
+    </div>
     -->
-    
     
     <footer>
         <div id="contact">
-            <h3>Contact</h3>
+            <h3 style="background-color: #c3dcd8;">Contact</h3>
             <span>Call : 010-9153-6965</span>
             <br>
             <span>E-mail : wnstj701@naver.com</span>

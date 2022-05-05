@@ -1,12 +1,12 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Blog
+from .models import Post
 from django.utils import timezone
 
 # Create your views here.
 
 
 def showmain(request):
-    blogs = Blog.objects.all()
+    blogs = Post.objects.all()
     return render(request, 'main/show.html', {'blogs': blogs})
 
 
@@ -31,19 +31,19 @@ def showhobby(request):
 
 
 def detail(request, id):
-    blog = get_object_or_404(Blog, pk=id)
-    return render(request, 'main/detail.html', {'blog': blog})
+    post = get_object_or_404(Post, pk=id)
+    return render(request, 'main/detail.html', {'blog': post})
 
 
 def new(request):
-    return render(request, 'main/mew.html')
+    return render(request, 'main/new.html')
 
 
-def crea(request):
-    new_blog = Blog()
-    new_blog.title = request.POST['title']
-    new_blog.writer = request.POST['writer']
-    new_blog.pub_date = timezone.now()
-    new_blog.body = request.POST['body']
-    new_blog.save()
-    return redirect('detail', new_blog.id)
+def create(request):
+    new_post = Post()
+    new_post.title = request.POST['title']
+    new_post.writer = request.POST['writer']
+    new_post.pub_date = timezone.now()
+    new_post.body = request.POST['body']
+    new_post.save()
+    return redirect('detail', new_post.id)
