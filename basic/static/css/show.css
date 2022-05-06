@@ -3,10 +3,14 @@
     font-family: 'Cormorant Garamond';
 }
 
+h1 {
+    color:brown;
+}
+
 .mainword {
     margin-top: 100px;
     margin-bottom: 50px;
-    font-size: 20px;
+    font-size: 200px;
     text-align: center;
 }
 
