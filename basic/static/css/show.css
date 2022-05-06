@@ -11,6 +11,12 @@
     text-align: center;
 }
 
+.mypic {
+    width: 200px;
+    height: 350px;
+    padding-top: 3%;
+}
+
 input {
     box-shadow: 5px 10px 20px 0 rgba(0, 0, 0, 0.1);
     text-align: center;
