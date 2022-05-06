@@ -6,28 +6,28 @@
     <div class="title">
         <!--<label for="exampleDataList" class="form-label"><h1>아기사자 검색</h1></label>-->
         <div class="mainword">
-            <h1>Hello, LION</h1>
+            <h1 style="font-size:100px">Hello, LION</h1>
         </div>
         <div class="box">
             <input type="search" id="search" style="width: 750px; height: 50px;" placeholder="아기사자 검색" />
         </div>
         <hr>
-        <!--<input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="내가 궁금하다면?">
+        <!--<input class="form-control" list="datalistOptions" id="s" placeholder="아기사자 검색" style="width: 750px; height: 50px;>
         <datalist id="datalistOptions">
         <option value="멋쟁이사자처럼 10기 프론트엔드, 오준서">
         </datalist>
-        --->
+        -->
         <a href="{% url 'showwrite' %}">WRITE PAGE</a>
         <a href="{% url 'showhistory' %}">HISTORY PAGE</a>
         <a href="{% url 'showphoto' %}">PHOTO PAGE</a>
         <a href="{% url 'showcharacter' %}">CHARACTER PAGE</a>
         <a href="{% url 'showhobby' %}">HOBBY PAGE</a>
-        <br>
+        <hr>
     </div>
 
-    <h5><a href="{%url 'new'%}">글쓰기</a></h5>
+    <p><a href="{%url 'new'%}">글쓰기</a></p>
     
-    <h5>글 목록</h5>
+    <p>글 목록</p>
 
     <div>
         {% for post in posts %}

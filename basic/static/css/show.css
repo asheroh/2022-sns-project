@@ -3,14 +3,11 @@
     font-family: 'Cormorant Garamond';
 }
 
-h1 {
-    color:brown;
-}
-
 .mainword {
-    margin-top: 100px;
-    margin-bottom: 50px;
-    font-size: 200px;
+    color:brown;
+    margin-top: 120px;
+    margin-bottom: 20px;
+    font-size: 100px;
     text-align: center;
 }
 
@@ -21,7 +18,7 @@ input {
 }
 
 .box{
-    margin-bottom: 400px;
+    margin-bottom: 200px;
     width: 100%;
     text-align: center;
 }
