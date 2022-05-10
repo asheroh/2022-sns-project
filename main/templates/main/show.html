@@ -3,13 +3,13 @@
 {% load static %}
 
 {% block content %}
-    <div class="title">
-        <!--<label for="exampleDataList" class="form-label"><h1>아기사자 검색</h1></label>-->
+    <div class="title" style="margin-top: -10%;">
         <div class="mainword">
+            <a href="https://github.com/AsherOh" target="_blank"><img src="{% static 'images/Likelion.png' %}" style="width: 130px; height:80px; margin-left: 420px; margin-bottom: -90px;" class="likelion" alt="likelion"></a>
             <h1 style="font-size:100px">Hello, LION</h1>
         </div>
         <div class="box">
-            <input type="search" id="search" style="width: 750px; height: 50px;" placeholder="아기사자 검색" />
+            <input type="search" id="search" style="width: 550px; height: 35px; font-size: 20px;" placeholder="아기사자 검색"/>
         </div>
         <hr>
         <!--<input class="form-control" list="datalistOptions" id="s" placeholder="아기사자 검색" style="width: 750px; height: 50px;>
@@ -17,14 +17,16 @@
         <option value="멋쟁이사자처럼 10기 프론트엔드, 오준서">
         </datalist>
         -->
-        <a href="{% url 'showwrite' %}">WRITE PAGE</a>
-        <a href="{% url 'showhistory' %}">HISTORY PAGE</a>
-        <a href="{% url 'showphoto' %}">PHOTO PAGE</a>
-        <a href="{% url 'showcharacter' %}">CHARACTER PAGE</a>
-        <a href="{% url 'showhobby' %}">HOBBY PAGE</a>
+        <div class="url">
+            <a href="{% url 'showwrite' %}">WRITE PAGE</a>
+            <a href="{% url 'showhistory' %}">HISTORY PAGE</a>
+            <a href="{% url 'showphoto' %}">PHOTO PAGE</a>
+            <a href="{% url 'showcharacter' %}">CHARACTER PAGE</a>
+            <a href="{% url 'showhobby' %}">HOBBY PAGE</a>
+        </div>        
         <hr>
     </div>
-
+    
     <p><a href="{%url 'new'%}">글쓰기</a></p>
     
     <p>글 목록</p>
