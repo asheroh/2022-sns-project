@@ -6,8 +6,8 @@ from django.utils import timezone
 
 
 def showmain(request):
-    blogs = Post.objects.all()
-    return render(request, 'main/show.html', {'blogs': blogs})
+    posts = Post.objects.all()
+    return render(request, 'main/show.html', {'blogs': posts})
 
 
 def showwrite(request):
@@ -32,7 +32,7 @@ def showhobby(request):
 
 def detail(request, id):
     post = get_object_or_404(Post, pk=id)
-    return render(request, 'main/detail.html', {'blog': post})
+    return render(request, 'main/detail.html', {'post': post})
 
 
 def new(request):
