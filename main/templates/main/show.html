@@ -30,13 +30,11 @@
     <p><a href="{%url 'new'%}">글쓰기</a></p>
     
     <p>글 목록</p>
-
     <div>
         {% for post in posts %}
         <div>
             <h6>{{post.title}}</h6>
-            {{post.writer}}
-            <br>
+            {{post.writer}} <br>
             {{post.summary}}
             <a href="{%url 'detail' post.id %}">...자세히</a>
             <br>
