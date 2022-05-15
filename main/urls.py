@@ -1,8 +1,9 @@
-from django.urls import path, include
+from django.urls import path
 from .views import *
 
+app_name = "main"
 urlpatterns = [
-    path('', include('sns_project.urls')),
+    path('', showmain, name="showmain"),
     path('writepage/', showwrite, name="showwrite"),
     path('historypage/', showhistory, name="showhistory"),
     path('photopage/', showphoto, name="showphoto"),
