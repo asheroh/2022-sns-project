@@ -52,3 +52,19 @@ def create(request):
 def edit(request, id):
     edit_post = Post.objects.get(id=id)
     return render(request, 'main/edit.html', {'post': edit_post})
+
+
+def update(request, id):
+    update_post = Post.objects.get(id=id)
+    update_post.title = request.POST['title']
+    update_post.writer = request.POST['writer']
+    update_post.pub_date = timezone.now()
+    update_post.body = request.POST['body']
+    update_post.save()
+    return redirect('detail', update_post.id)
+
+
+def delete(request, id):
+    delete_post = Post.objects.get(id=id)
+    delete_post.delete()
+    return redirect('main:posts')

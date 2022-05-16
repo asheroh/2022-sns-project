@@ -10,5 +10,6 @@
 <hr>
 <p>{{post.body}}</p>
 <a href="{%url 'main:edit' post.id%}">수정하기</a>
+<a href="{%url 'main:delete' post.id%}">삭제하기</a>
 
 {% endblock %}
