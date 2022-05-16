@@ -67,4 +67,4 @@ def update(request, id):
 def delete(request, id):
     delete_post = Post.objects.get(id=id)
     delete_post.delete()
-    return redirect('main:posts')
+    return redirect('main:showmain')
