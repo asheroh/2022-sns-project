@@ -47,3 +47,8 @@ def create(request):
     new_post.body = request.POST['body']
     new_post.save()
     return redirect('detail', new_post.id)
+
+
+def edit(request, id):
+    edit_post = Post.objects.get(id=id)
+    return render(request, 'main/edit.html', {'post': edit_post})

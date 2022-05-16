@@ -9,4 +9,5 @@ urlpatterns = [
     path('photopage/', showphoto, name="showphoto"),
     path('characterpage/', showcharacter, name="showcharacter"),
     path('hobbypage/', showhobby, name="showhobby"),
+    path('edit/<int:id>', edit, name="edit"),
 ]

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <p>글 수정하기</p>
+    <form action="" method="post">
+        {%csrf_token%}
+        <p>제목 : <input type="text" name="title" value="{{post.title}}"></p>
+        <p>작성자 : <input type="text" name="writer" value="{{post.writer}}"></p>
+        <p>내용 : <textarea type="text" name="body" id="" cols="30" rows="10">{{post.body}}</textarea></p>
+        <button type="submit">제출</button>
+    </form>
+</div>
+{% endblock %}
