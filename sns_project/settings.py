@@ -128,3 +128,7 @@ STATICFILES_DIRS = [
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# 이용자가 업로드한 파일을 모으는 곳
+MEDIA_URL = '/media/'
