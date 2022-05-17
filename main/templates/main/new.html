@@ -4,7 +4,7 @@
 
 {% block content %}
 
-<form action="{%url 'create'%}" method="Post">
+<form action="{%url 'create'%}" method="post" enctype="multipart/form-data">
     {%csrf_token%}
     <p>제목 : <input type="text" name="title"></p>
     <p>작성자 : <input type="text" name="writer"></p>
