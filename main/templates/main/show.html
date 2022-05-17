@@ -5,11 +5,14 @@
 {% block content %}
     <div class="title" style="margin-top: -10%;">
         <div class="mainword">
-            <a href="https://github.com/AsherOh" target="_blank"><img src="{% static 'images/Likelion.png' %}" style="width: 130px; height:80px; margin-left: 420px; margin-bottom: -90px;" class="likelion" alt="likelion"></a>
+            <a href="https://github.com/AsherOh" target="_blank"><img src="{% static 'images/Likelion.png' %}" style="width: 100px; height:55px; margin-left: 440px; margin-bottom: -120px;" class="likelion" alt="likelion"></a>
             <h1 style="font-size:100px">Hello, LION</h1>
         </div>
         <div class="box">
             <input type="search" id="search" style="width: 550px; height: 35px; font-size: 20px;" placeholder="아기사자 검색"/>
+            <div id="recommend" class="invisible">
+                <div class="item">멋쟁이사자처럼 10기 오준서<span class="text"></span></div>
+            </div>
         </div>
         <hr>
         <!--<input class="form-control" list="datalistOptions" id="s" placeholder="아기사자 검색" style="width: 750px; height: 50px;>
@@ -17,15 +20,14 @@
         <option value="멋쟁이사자처럼 10기 프론트엔드, 오준서">
         </datalist>
         -->
-        <div class="url">
+        <!--<div class="url">
             <a href="{% url 'main:showwrite' %}">WRITE PAGE</a>
             <a href="{% url 'main:showhistory' %}">HISTORY PAGE</a>
             <a href="{% url 'main:showphoto' %}">PHOTO PAGE</a>
             <a href="{% url 'main:showcharacter' %}">CHARACTER PAGE</a>
             <a href="{% url 'main:showhobby' %}">HOBBY PAGE</a>
         </div>
-        
-        <hr>
+        -->
     </div>
     
     <p><a href="{%url 'new'%}">글쓰기</a></p>
@@ -55,4 +57,21 @@
             <br>
         </div>
     </footer>
+
+    <script>
+        const inputBox = document.querySelector("input");
+        const recommendBox = document.querySelector("#recommend");
+        const texts = document.querySelectorAll(".text");
+
+        inputBox.addEventListener("keyup", (e) => {
+            if (e.target.value.length > 0) {
+                recommendBox.classList.remove('invisible');
+                texts.forEach((textEl) => {
+                    textEl.textContent = e.target.value;
+                })
+            } else {
+                recommendBox.classList.add('invisible');
+            }
+        })
+    </script>
 {% endblock %}

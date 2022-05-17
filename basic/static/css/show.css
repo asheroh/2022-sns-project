@@ -27,6 +27,19 @@ input {
     display: block;
 }
 
+#recommend {
+    margin-top: 1px;
+    position: absolute;
+    background: white;
+    padding: 0 10px;
+}
+
+.item {
+    height: 1.8em;
+    width: 220px;
+    outline: none;
+}
+
 .name {
     text-align: right;
     padding: 5%;
