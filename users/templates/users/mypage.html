@@ -7,7 +7,8 @@
     <div>
     {% for post in posts %}
 
-    <a href="{% url 'main:detail' blog.id %}">{{post.title}}</a><hr>
+    <a href="{% url 'main:detail' post.id %}">{{post.title}}</a>
+    <hr>
 
     {% endfor %}
     </div>

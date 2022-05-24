@@ -73,5 +73,5 @@ def delete(request, id):
 
 
 def posts(request):
-    blogs = Post.objects.all()
+    posts = Post.objects.all()
     return render(request, 'main/posts.html', {'posts': posts})

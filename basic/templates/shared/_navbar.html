@@ -20,6 +20,8 @@
                 Dropdown
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="{% url 'main:posts' %}">게시글 목록</a></li>
+                <li><a class="dropdown-item" href="{% url 'main:new' %}">게시글 작성</a></li>
                 <li><a class="dropdown-item" href="{%url 'main:showwrite' %}">Free board</a></li>
                 <li><a class="dropdown-item" href="{%url 'main:showhobby' %}">Hobby</a></li>
                 <li><a class="dropdown-item" href="{%url 'main:showcharacter' %}">Character</a></li>
@@ -27,7 +29,7 @@
                 <li><a class="dropdown-item" href="{%url 'main:showphoto' %}">Photologue</a></li>
             </ul>
             </li>
-            
+
             <!--로그인-->
             <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">

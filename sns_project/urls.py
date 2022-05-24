@@ -24,7 +24,6 @@ urlpatterns = [
     path('', include('main.urls')),
     path('admin/', admin.site.urls),
     path('<int:id>', views.detail, name="detail"),
-    path('new/', views.new, name="new"),
     path('create/', views.create, name="create"),
     # allauth와의 url 연결
     path('accounts/', include('allauth.urls')),
