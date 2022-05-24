@@ -38,6 +38,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main',
+    'accounts',
+    # 사이트 프레임워크, 사이트 기본 정보 설정
+    'django.contrib.sites',
+    # allauth 관련 앱: 일반 계정 관리, 소셜 계정 관리
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
 ]
 
 MIDDLEWARE = [
@@ -132,3 +139,18 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # 이용자가 업로드한 파일을 모으는 곳
 MEDIA_URL = '/media/'
+
+AUTHENTICATION_BACKENDS = [
+    # superuser 로그인 기능
+    'django.contrib.auth.backends.ModelBackend',
+    # 이메일 등의 로그인 기능
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+# admin 페이지 관리 번호, 단일서버는 1 입력
+SITE_ID = 1
+
+# 로그인 시 이동하는 페이지, 만약 글 목록으로 이동하고 싶다면 '/posts'
+LOGIN_REDIRECT_URL = '/'  # 메인화면으로 이동
+
+ACCOUNT_EMAIL_VERIFICATION = 'none'

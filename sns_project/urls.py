@@ -26,4 +26,7 @@ urlpatterns = [
     path('<int:id>', views.detail, name="detail"),
     path('new/', views.new, name="new"),
     path('create/', views.create, name="create"),
+    # allauth와의 url 연결
+    path('accounts/', include('allauth.urls')),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
