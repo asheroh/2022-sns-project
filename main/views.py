@@ -69,4 +69,9 @@ def update(request, id):
 def delete(request, id):
     delete_post = Post.objects.get(id=id)
     delete_post.delete()
-    return redirect('main:showmain')
+    return redirect('main:posts')
+
+
+def posts(request):
+    blogs = Blog.objects.all()
+    return render(request, 'main/posts.html', {'posts': posts})
