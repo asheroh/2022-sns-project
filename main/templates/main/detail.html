@@ -39,6 +39,7 @@
         <div>
             작성자 : {{comment.writer}}
             {{comment.content}}
+            <a href="{%url 'main:update_comment' post.id%}">수정하기</a>
             <br><hr>
         </div>
     {% endfor %}

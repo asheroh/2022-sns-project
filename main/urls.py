@@ -16,4 +16,5 @@ urlpatterns = [
     path('posts/', posts, name="posts"),
     path('new/', new, name="new"),
     path('<str:post_id>/create_comment', create_comment, name="create_comment"),
+    path('<str:post_id>/update_comment', update_comment, name="update_comment"),
 ]
