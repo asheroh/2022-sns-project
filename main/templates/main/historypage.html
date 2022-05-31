@@ -4,6 +4,60 @@
 
 {% block content %}
 
-<h1>연혁</h1>
+<style>
+    .main {
+        color: brown;
+        text-align: center;
+        border-bottom: 3px solid brown;
+        padding: 20px 20px;
+    }
+
+    .grid {
+        
+    }
+
+    .grid_1 {
+        display: inline-grid;
+        padding: 20px;
+        border-right: 2px solid brown;
+        
+    }
+
+    .grid_2 {
+        display: inline-grid;
+        padding: 20px;
+        border-right: 2px solid brown;
+        
+    }
+
+    .grid_3 {
+        display: inline-grid;
+        padding: 20px;
+        border-right: 2px solid brown;
+
+    }
+
+</style>
+
+
+<h1 class="main">Introduction</h1>
+
+<div class="grid">
+    <div class="grid_1">
+        <h2>학력</h2>
+        <p>동국대학교 융합에너지신소재공학과 17학번</p>
+        <p>동국대학교 공학교육혁신센터 DAVINCI 5기</p>
+    </div>
+    
+    <div class="grid_2">
+        <h2>대외활동</h2>
+        <p></p>
+    </div>
+    
+    <div class="grid_3">
+        <h2>목표</h2>
+        <p></p>
+    </div>
+</div>
 
 {% endblock %}
