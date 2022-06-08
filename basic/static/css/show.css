@@ -3,6 +3,7 @@
     font-family: 'Cormorant Garamond';
 }
 
+
 .mainword {
     color:brown;
     margin-top: 120px;
@@ -17,12 +18,14 @@ input {
     text-align: center;
 }
 
+
 .searchbar {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
+
 
 .search {
     width: 300px;
@@ -38,6 +41,7 @@ input {
     border-bottom: 1px black solid;
 }
 
+
 .search button {
     font-size: 18px;
     border: none;
@@ -48,6 +52,7 @@ input {
     color: #fff;
     cursor: pointer;
     }
+
 
 .name {
     text-align: right;
