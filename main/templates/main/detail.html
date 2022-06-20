@@ -26,7 +26,7 @@
 <div>
     <form action="{%url 'main:create_comment' post.id%}" method="POST">
     {%csrf_token%}
-    <textarea name="content" placeholder="댓글내용입력"></textarea>
+    <textarea name="content" placeholder="댓글 입력"></textarea>
     <input type="submit" value="확인">
     </form>
 </div>
@@ -39,8 +39,14 @@
         <div>
             작성자 : {{comment.writer}}
             {{comment.content}}
-            <a href="{%url 'main:update_comment' post.id%}">수정하기</a>
-            <br><hr>
+            
+            {% if comment.comment_writer == writer %}
+            <a href="{%url 'main:update_comment' comment.id%}"><input type="button" value="수정"></a>
+            <a href="{%url 'main:delete_comment' comment.id%}"><input type="button" value="삭제"></a>
+            <br><br>
+            {% endif %}
+            <p id="comment_time">댓글 작성시간 : {{comment.pub_date}}</p>
+            <hr>
         </div>
     {% endfor %}
 </div>

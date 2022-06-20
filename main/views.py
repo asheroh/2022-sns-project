@@ -80,39 +80,23 @@ def update(request, id):
     return redirect('detail', update_post.id)
 
 
-def update_comment(request, comment_id):
+def update_comment(request, comment_id, post_id):
 
-    comment = get_object_or_404(Comment, pk=comment_id)
-    document = get_object_or_404(Document, pk=comment.document.id)
-
-    if request.user != comment.author:
-        messages.warning(request, "권한 없음")
-        return redirect(document)
-
+    my_comment = Comment.objects.get(id=comment_id)
+    comment_form = commentForm(instance=my_comment)
     if request.method == "POST":
-        form = CommentForm(request.POST, instance=comment)
-        if form.is_valid():
-            form.save()
-            return redirect(document)
-    else:
-        form = CommentForm(instance=comment)
-    return render(request, 'board/comment/update_comment.html', {'form': form})
+        update_form = CommentForm(request.POST, instance=my_comment)
+        if update_form.is_valid():
+            update_form.save()
+            return redirect('detail', post_id)
+        return render(request, 'review_update.html', {'comment_form': comment_form})
 
 
-def delete_comment(request, comment_id):
-
-    comment = get_object_or_404(Comment, pk=comment_id)
-    document = get_object_or_404(Document, pk=comment.document.id)
-
-    if request.user != comment.author and not request.user.is_staff and request.user != document.author:
-        messages.warning(request, '권한 없음')
-        return redirect(document)
-
-    if request.method == "POST":
-        comment.delete()
-        return redirect(document)
-    else:
-        return render(request, 'board/comment/delete_comment.html', {'object': comment})
+def delete_comment(request, id):
+    comment = get_object_or_404(Comment, pk=id)
+    post_id = comment.post.id
+    comment.delete()
+    return redirect('post:detail', post_id)
 
 
 def delete(request, id):
