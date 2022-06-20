@@ -155,3 +155,11 @@ class CommentDelete(DeleteView):
             return HttpResponseRedirect('/')
         else:
             return super(CommentDelete, self).dispatch(request, *args, **kwargs)
+
+
+def dispatch(self, request, *args, **kwargs):
+    object = self.get_object()
+    if request.method == "POST":
+        super().post(request, *args, **kwargs)
+    else:
+        super().post(request, *args, **kwargs)
