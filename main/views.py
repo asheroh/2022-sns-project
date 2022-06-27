@@ -80,23 +80,46 @@ def update(request, id):
     return redirect('detail', update_post.id)
 
 
-def update_comment(request, comment_id, post_id):
+# 실패 코드
+# def update_comment(request, comment_id, post_id):
 
-    my_comment = Comment.objects.get(id=comment_id)
-    comment_form = commentForm(instance=my_comment)
+#     my_comment = Comment.objects.get(id=comment_id)
+#     comment_form = commentForm(instance=my_comment)
+#     if request.method == "POST":
+#         update_form = CommentForm(request.POST, instance=my_comment)
+#         if update_form.is_valid():
+#             update_form.save()
+#             return redirect('detail', post_id)
+#         return render(request, 'review_update.html', {'comment_form': comment_form})
+
+def edit_comment(request, post_id, comment_id):
+    post = Post.objects.get(id=post_id)
+    comment = Comment.objects.get(id=comment_id)
+    return render(request, 'main/edit_comment.html', {'post': post, 'comment': comment})
+
+
+def update_comment(request, post_id, comment_id):
+    comment = get_object_or_404(Comment, pk=comment_id)
     if request.method == "POST":
-        update_form = CommentForm(request.POST, instance=my_comment)
-        if update_form.is_valid():
-            update_form.save()
-            return redirect('detail', post_id)
-        return render(request, 'review_update.html', {'comment_form': comment_form})
+        comment.content = request.POST['content']
+        comment.save()
+        return redirect('main:detail', comment.post.id)
+    return render(request, 'main:detail', {'comment': comment})
 
 
-def delete_comment(request, id):
-    comment = get_object_or_404(Comment, pk=id)
-    post_id = comment.post.id
-    comment.delete()
-    return redirect('post:detail', post_id)
+# 실패 코드
+# def delete_comment(request, id):
+#     comment = get_object_or_404(Comment, pk=id)
+#     post_id = comment.post.id
+#     comment.delete()
+#     return redirect('post:detail', post_id)
+
+
+def delete_comment(request, comment_id):
+    delete_comment = Comment.objects.get(pk=comment_id)
+    delete_comment.delete()
+    return redirect('main:posts')
+# 댓글 삭제 시에는 post id값 받아올 필요 없이 comment id값만 받아와도 충분
 
 
 def delete(request, id):
@@ -108,42 +131,3 @@ def delete(request, id):
 def posts(request):
     posts = Post.objects.all()
     return render(request, 'main/posts.html', {'posts': posts})
-
-
-class CommentUpdate(UpdateView):
-    model = Comment
-    fields = ['text']
-    template_name_suffix = '_update'
-    # success_url = '/'
-
-    def dispatch(self, request, *args, **kwargs):
-        object = self.get_object()
-        if object.author != request.user:
-            messages.warning(request, '수정할 권한이 없습니다.')
-            return HttpResponseRedirect('/')
-            # 삭제 페이지에서 권한이 없다! 라고 띄우거나
-            # detail페이지로 들어가서 삭제에 실패했습니다. 라고 띄우거나
-        else:
-            return super(CommentUpdate, self).dispatch(request, *args, **kwargs)
-
-
-class CommentDelete(DeleteView):
-    model = Comment
-    template_name_suffix = '_delete'
-    success_url = '/'
-
-    def dispatch(self, request, *args, **kwargs):
-        object = self.get_object()
-        if object.author != request.user:
-            messages.warning(request, '삭제할 권한이 없습니다.')
-            return HttpResponseRedirect('/')
-        else:
-            return super(CommentDelete, self).dispatch(request, *args, **kwargs)
-
-
-def dispatch(self, request, *args, **kwargs):
-    object = self.get_object()
-    if request.method == "POST":
-        super().post(request, *args, **kwargs)
-    else:
-        super().post(request, *args, **kwargs)

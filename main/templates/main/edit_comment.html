@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div>
+    <form action="{% url 'main:update_comment' post.id comment.id %}" method="POST">
+        {%csrf_token%}
+        <textarea name="content">{{comment.content}}</textarea>
+        <input type="submit" value="확인">
+    </form>
+</div>
+
+{% endblock %}

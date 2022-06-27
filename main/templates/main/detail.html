@@ -41,7 +41,10 @@
             {{comment.content}}
             
             {% if comment.comment_writer == writer %}
-            <a href="{%url 'main:update_comment' comment.id%}"><input type="button" value="수정"></a>
+            {% comment %}
+            <a href="{% url 'main:update_comment' comment.id %}"><input type="button" value="수정"></a> 
+            {% endcomment %}
+            <a href="{%url 'main:edit_comment' post.id comment.id%}"><input type="button" value="수정"></a>
             <a href="{%url 'main:delete_comment' comment.id%}"><input type="button" value="삭제"></a>
             <br><br>
             {% endif %}

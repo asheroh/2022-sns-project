@@ -17,6 +17,11 @@ urlpatterns = [
     path('posts/', posts, name="posts"),
     path('new/', new, name="new"),
     path('<int:post_id>/create_comment', create_comment, name="create_comment"),
-    path('<int:post_id>/update_comment', update_comment, name="update_comment"),
-    path('delete_comment/<int:id>', delete_comment, name="delete_comment"),
+    path('<str:post_id>/<str:comment_id>/update_comment',
+         update_comment, name="update_comment"),
+    path('<str:post_id>/<str:comment_id>/edit_comment',
+         edit_comment, name="edit_comment"),
+    # comment UD 시에는 post와 comment id 둘 다 필요
+    path('<str:comment_id>/delete_comment',
+         delete_comment, name="delete_comment"),
 ]
