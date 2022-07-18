@@ -1,56 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
 * {
     background-color: #eaf6f4;
 }
 
+/* 랜딩페이지 메인-----------------------------------------*/
+.landing {
+    height: 100%;
+}
 
-.mainword {
+.landing img {
+    position: absolute;
+    left: 70%;
+    top: 22%;
+    width: 250px;
+    height: 150px;
+    z-index: 1;
+}
+
+.landing h1 {
+    position: relative;
+    top: 25%;
     color:brown;
-    margin-top: 120px;
-    margin-bottom: 20px;
-    font-size: 100px;
     text-align: center;
+    font-size: 300px;
+    font-family: 'Indie Flower';
+    margin-bottom: 0px;
 }
 
-
-input {
-    box-shadow: 5px 10px 20px 0 rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-
-.searchbar {
+.arrow {
+    position: relative;
+    top: 25%;
     display: flex;
+    flex-direction: row;
     justify-content: center;
-    align-items: center;
+    font-family: 'Indie Flower';
+    color:brown;
+    font-size: 200px;
+    margin-bottom: 30%;
 }
 
-
-.search {
-    width: 300px;
-    height: 100px;
-}
-
-
-.search input {
-    width: 80%;
-    height: 30px;
-    font-size: 18px;
-    border: none;
-    border-bottom: 1px black solid;
-}
-
-
-.search button {
-    font-size: 18px;
-    border: none;
-    background-color: brown;
-    width: 50px;
-    height: 30px;
-    border-radius: 15px;
-    color: #fff;
-    cursor: pointer;
-    }
-
+/* 랜딩페이지 중단부 ---------------------------------------*/
 
 .name {
     text-align: right;
@@ -75,9 +65,17 @@ th, td {
     text-align: center;
 }
 
-#contact {
+/* 랜딩페이지 하단부 ---------------------------------------*/
+
+.landing_btm {
+    position: relative;
     text-align: center;
     font-size: 18px;
-    background-color: #c3dcd8;
-    color: #1b1b1b;
+    background-color: #99b3af;
+}
+
+footer h2 {
+    font-family: 'Indie Flower';
+    color:brown;
+    background-color: #99b3af;
 }
