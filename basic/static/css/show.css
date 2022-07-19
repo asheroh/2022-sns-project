@@ -1,47 +1,272 @@
-@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+@charset "UTF-8";
+@font-face {
+    font-family: "AppleSDGothicNeoB";
+    src: url(../font/AppleSDGothicNeoB.ttf);
+}
+
+@font-face {
+    font-family: "AppleSDGothicNeoLB";
+    src: url(../font/AppleSDGothicNeoL.ttf);
+}
+
+@font-face {
+    font-family: "AppleSDGothicNeoM";
+    src: url(../font/AppleSDGothicNeoM.ttf);
+}
+
+@font-face {
+    font-family: "AppleSDGothicNeoEB";
+    src: url(../font/AppleSDGothicNeoEB.ttf);
+}
+
+@font-face {
+    font-family: "Pacifico";
+    src: url(../font/Pacifico-Regular.ttf);
+}
+
+@font-face {
+    font-family: "Indie Flower";
+    src: url(../font/IndieFlower-Regular.ttf);
+}
+
+@font-face {
+    font-family: "Black Han Sans";
+    src: url(../font/BlackHanSans-Regular.ttf);
+}
+/* @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Indie+Flower&display=swap'); */
+
+/* RESET RULES–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+:root {
+    --body: #d4eefb;
+}
 
 * {
-    background-color: #eaf6f4;
+    background-color: var(--body);
+}
+
+.body {
+    max-width: 100%;
+    max-height: 100%;
 }
 
 /* 랜딩페이지 메인-----------------------------------------*/
 .landing {
-    height: 100%;
+    min-height: 100vh;
 }
 
 .landing img {
     position: absolute;
-    left: 70%;
-    top: 22%;
-    width: 250px;
-    height: 150px;
+    left: 72%;
+    top: 210px;
+    width: 200px;
+    height: 120px;
     z-index: 1;
 }
 
 .landing h1 {
     position: relative;
-    top: 25%;
+    top: 200px;
     color:brown;
     text-align: center;
     font-size: 300px;
     font-family: 'Indie Flower';
-    margin-bottom: 0px;
+    margin-bottom: 300px;
 }
 
-.arrow {
-    position: relative;
-    top: 25%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    font-family: 'Indie Flower';
-    color:brown;
-    font-size: 200px;
-    margin-bottom: 30%;
+/* 랜딩페이지 메인 화살표 ----------------------------------*/
+.arrow a span {
+    position: absolute;
+    top: 700px;
+    left: 50%;
+    width: 24px;
+    height: 24px;
+    margin-left: -12px;
+    border-left: 1px solid brown;
+    border-bottom: 1px solid brown;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    -webkit-animation: sdb 2s infinite;
+    animation: sdb 2s infinite;
+    opacity: 0;
+    box-sizing: border-box;
+}
+.arrow a span:nth-of-type(1) {
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+}
+.arrow a span:nth-of-type(2) {
+    top: 740px;
+    -webkit-animation-delay: .15s;
+    animation-delay: .15s;
+}
+.arrow a span:nth-of-type(3) {
+    top: 780px;
+    -webkit-animation-delay: .3s;
+    animation-delay: .3s;
+}
+@-webkit-keyframes sdb {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+@keyframes sdb {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
 }
 
 /* 랜딩페이지 중단부 ---------------------------------------*/
+.v-line{
+    border-left: thin solid brown;
+    height: 250px;
+    left: 50%;
+    position: absolute;
+    opacity: 0.4;
+    margin-top: 4%;
+}
 
+.ld_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 50vh 30px 1fr 30px 1fr 1fr 1fr 30px;
+    row-gap: 60px;
+    column-gap: 20px;
+}
+
+/* 소개 메인 */
+.item:nth-child(1) {
+    grid-column: 1 / 4;
+    grid-row : 1 / 2;
+    font-size: 42px;
+    font-family: "Black Han Sans";
+    color: brown;
+    text-align: center;
+    margin-top: 10%;
+}
+
+/* Introduction 문구 */
+.item:nth-child(2) {
+    grid-column: 1 / 4;
+    grid-row : 2 / 3;
+    border-radius: 25px;
+    font-size: 40px;
+    font-family: "Black Han Sans";
+    color: brown;
+    text-align: center;
+    justify-content: center;
+    margin-top: 10%;
+}
+
+/* 소개 내용 */
+.item:nth-child(3) {
+    grid-column: 1 / 4;
+    grid-row : 3 / 4;
+    width: 55vw;
+    height: 75vh;
+    border-radius: 25px;
+    font-size: 26px;
+    font-family: "AppleSDGothicNeoM";
+    font-style: italic;
+    line-height: 50px;
+    color: black;
+    text-align: center;
+    justify-self: center;
+    margin-bottom: 15%;
+    margin-top: 10%;
+}
+
+/* About Me 문구 */
+.item:nth-child(4) {
+    grid-column: 1 / 4;
+    grid-row : 4 / 5;
+    border-radius: 25px;
+    font-size: 40px;
+    font-family: "Black Han Sans";
+    color: brown;
+    text-align: center;
+    justify-content: center;
+    
+}
+
+/* Introduction 컨텐츠 */
+.item:nth-child(5) {
+    grid-column: 1 / 2;
+    grid-row : 5 / 6;
+    background: white;
+    border-radius: 25px;
+    height: 50vh;
+}
+
+.item:nth-child(6) {
+    grid-column: 2 / 3;
+    grid-row : 5 / 6;
+    background: white;
+    border-radius: 25px;
+    height: 50vh;
+}
+
+.item:nth-child(7) {
+    grid-column: 3 / 4;
+    grid-row : 5 / 6;
+    background: white;
+    border-radius: 25px;
+    height: 50vh;
+}
+
+.item:nth-child(8) {
+    grid-column: 1 / 4;
+    grid-row : 6 / 7;
+    background: white;
+    border-radius: 25px;
+}
+
+.item h2 {
+    text-align: center;
+    background-color: white;
+    border-radius: 25px;
+    padding: 2%;
+    font-family: "AppleSDGothicNeoM";
+}
+
+.item span {
+    background-color: white;
+    padding: 2%;
+    font-family: "AppleSDGothicNeoM00";
+    font-size: 22px;
+    line-height: 45px;
+}
+
+/* 랜딩페이지 하단부 ---------------------------------------*/
+
+.landing_btm {
+    position: relative;
+    text-align: center;
+    font-size: 18px;
+    background-color: #99b3af;
+}
+
+footer h2 {
+    font-family: 'Indie Flower';
+    color:brown;
+    background-color: #99b3af;
+}
+
+
+/* 임시 처리 -----------------------------------------------*/
 .name {
     text-align: right;
     padding: 5%;
@@ -63,19 +288,4 @@ th, td {
 
 .table_1, .table_2 {
     text-align: center;
-}
-
-/* 랜딩페이지 하단부 ---------------------------------------*/
-
-.landing_btm {
-    position: relative;
-    text-align: center;
-    font-size: 18px;
-    background-color: #99b3af;
-}
-
-footer h2 {
-    font-family: 'Indie Flower';
-    color:brown;
-    background-color: #99b3af;
 }
