@@ -15,21 +15,42 @@
             </form>
         </div> -->
         <div class="arrow">
-            <a href="#"><span></span><span></span><span></span></a>
+            <a href="#it1"><span></span><span></span><span></span></a>
         </div>
     </section>
+
+    <!-- 최상단 이동 버튼 -->
+    <input class="goupbtn" type="button" value="Top" onclick="clickme()">
+    <script>
+        function clickme() {
+            window.scrollTo({top:0, left:0, behavior:'smooth'});
+        }
+    </script>
 
     <section class="landing_body">
         <div class="ld_container">
             <div class="item" id="it1">
-                <p>멋쟁이사자처럼 10기 프론트엔드 오준서 소개 페이지에 오신 것을 환영합니다.</p>
-                <div class="v-line"></div>
+                <p>멋쟁이사자처럼 10기 프론트엔드 아기사자 소개 페이지에 오신 것을 환영합니다.</p>
             </div>
             
             <div class="item" id="it2">
-                <p>Introduction</p>
+                <button id="btn_itd" onclick="showIntroduction()">Who Am I?</button>
+                <script>
+                    function showIntroduction() {
+                        // 토글할 버튼 선택
+                        const buttonClick = document.getElementById("it3");
+                        // Introduction 보이기
+                        if(buttonClick.style.display !== 'none') {
+                            buttonClick.style.display = 'none';
+                        }
+                        // Introduction 숨기기
+                        else {
+                            buttonClick.style.display = 'block';
+                        }
+                    }
+                </script>
             </div>
-            <div class="item" id="it3">
+            <div class="item" id="it3" style="display: none;">
                 <p>
                 &ldquo;
                 <br>
@@ -60,28 +81,63 @@
                 반갑습니다.
                 <br>
                 &rdquo;
+                <div class="v-line"></div>
                 </p>
             </div>
             <div class="item" id="it4">
-                <p>About Me</p>
+                <button id="btn_itd2" onclick="showAboutMe()">About Me</button>
             </div>
             <div class="item" id="it5">
-                <h2>학력</h2>
-                <span>동국대학교 융합에너지신소재공학과 17학번</span><br>
-                <span>동국대학교 공학교육혁신센터 DAVINCI 5기</span>
+                <h2>이력</h2>
+                <ul>
+                    <li>창원중앙고등학교 졸업</li>
+                    <li>동국대학교 융합에너지신소재공학과 17학번</li>
+                    <li>동국대학교 공학교육혁신센터 DAVINCI 5기</li>
+                    <li>동국대학교 사진 소모임 네모믜꿈 전 회장</li>
+                    <li>수도방위사령부 제1경비단 AOC 방공작전통제반 만기전역</li>
+                    <li>동국대학교 러닝크루 D:Part 활동 중 무릎 부상</li>
+                    <li>데이원 독서모임 4기 활동 中</li>
+                </ul>
             </div>
             <div class="item" id="it6">
                 <h2>대외활동</h2>
-                <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia impedit ullam aperiam, quam nam harum temporibus et vero reiciendis numquam officiis nemo accusamus autem sed laborum necessitatibus</span>
+                <ul>
+                    <li>비즈니스 협상전략 교육 수료</li>
+                    <li>[폴앤마크] Tech-Business Innovation Camp 수료</li>
+                    <li>오픈소스 플랫폼(Arduino) 활용 IoT 시스템 구현 교육 수료</li>
+                    <li>공학페스티벌 공대생 심사위원단 E^2 Panel 활동</li>
+                    <li>DoDream 고체재료화학 학습동아리 수료</li>
+                    <li>[San José State Univ] Silicon Valley Innovation & Startup Program 수료</li>
+                    <li>멋쟁이사자처럼 심바톤 수료</li>
+                </ul>
             </div>
             <div class="item" id="it7">
                 <h2>목표</h2>
-                <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel nihil dignissimos, sed eos consectetur cum soluta quibusdam doloremque quis impedit aliquid aliquam voluptatibus! Adipisci rem quasi, ad</span>
+                <ul>
+                    <li>10기 중앙 해커톤 순위권 수상</li>
+                    <li>주 4회 이상 독서 서평 기록</li>
+                    <li>주 2회 이상 러닝</li>
+                    <li>월 2회 이상 풋살</li>
+                    <li>주 1회 이상 블로그 일기 작성</li>
+                    <li>월 1회 이상 웹 프로그래밍 프로젝트</li>
+                    <li>2023 예비창업패키지 선정</li>
+                </ul>
             </div>
             <div class="item" id="it8">
-
+                <button id="btn_itd3" onclick="showHobby()">Hobby</button>
             </div>
-
+            <div class="item" id="it9">
+                <img src="{% static 'images/photo.jpg' %}" class="photoMe" alt="photoMe"/>
+                <span>"Photography"</span>
+            </div>
+            <div class="item" id="it10">
+                <span>"Football"</span>
+                <img src="{% static 'images/football.jpg' %}" class="football" alt="football"/>
+            </div>
+            <div class="item" id="it11">
+                <img src="{% static 'images/riding.jpg' %}" class="riding" alt="riding"/>
+                <span>"Cycling"</span>
+            </div>
         </div>
     </section>
 

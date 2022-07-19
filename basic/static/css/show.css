@@ -36,7 +36,7 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Indie+Flower&display=swap'); */
 
-/* RESET RULES–––––––––––––––––––––––––––––––––––––––––––––––––– */
+/* RESET RULES––––––––––––––––––––––––––––––––––––––––––– */
 
 :root {
     --body: #d4eefb;
@@ -49,6 +49,21 @@
 .body {
     max-width: 100%;
     max-height: 100%;
+}
+
+/* 최상단 이동 버튼 ---------------------------------------*/
+.goupbtn {
+    top: 87%;
+    left: 93%;
+    width: 75px;
+    height: 75px;
+    border-radius: 80%;
+    background-color: white;
+    border: 1px solid brown;
+    position: fixed;
+    opacity: 0.8;
+    z-index: 2;
+    font-family: "AppleSDGothicNeoB";
 }
 
 /* 랜딩페이지 메인-----------------------------------------*/
@@ -131,18 +146,40 @@
 
 /* 랜딩페이지 중단부 ---------------------------------------*/
 .v-line{
-    border-left: thin solid brown;
-    height: 250px;
+    border-left: thin solid rgb(181, 181, 181);
+    height: 200px;
     left: 50%;
     position: absolute;
-    opacity: 0.4;
-    margin-top: 4%;
+    -webkit-animation: sdb 4s infinite;
+    animation: sdb 4s infinite;
+    opacity: 0;
+    -webkit-animation-delay: .7s;
+    animation-delay: .7s;
+}
+
+/* 버튼 ----------------------------------------------------*/
+.item button {
+    color: brown;
+    background-color: white;
+    border: 1px none brown;
+    padding: 1%;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    box-shadow: 5px 7px 20px 0px rgb(156, 156, 156);
+}
+
+.item button:hover {
+    box-shadow:
+        -7px -7px 20px 0px #fff9,
+        -4px -4px 5px 0px #fff9,
+        7px 7px 20px 0px #fff9,
+        4px 4px 5px 0px #fff9;
 }
 
 .ld_container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 50vh 30px 1fr 30px 1fr 1fr 1fr 30px;
+    grid-template-rows: 50vh 100px 130vh 100px 1fr 100px 1fr 1fr 1fr;
     row-gap: 60px;
     column-gap: 20px;
 }
@@ -165,7 +202,6 @@
     border-radius: 25px;
     font-size: 40px;
     font-family: "Black Han Sans";
-    color: brown;
     text-align: center;
     justify-content: center;
     margin-top: 10%;
@@ -180,9 +216,11 @@
     border-radius: 25px;
     font-size: 26px;
     font-family: "AppleSDGothicNeoM";
+    font-weight: 100;
     font-style: italic;
     line-height: 50px;
-    color: black;
+    color: rgb(61, 61, 61);
+    opacity: 0.8;
     text-align: center;
     justify-self: center;
     margin-bottom: 15%;
@@ -199,7 +237,6 @@
     color: brown;
     text-align: center;
     justify-content: center;
-    
 }
 
 /* Introduction 컨텐츠 */
@@ -209,6 +246,8 @@
     background: white;
     border-radius: 25px;
     height: 50vh;
+    box-shadow: 5px 7px 10px 0px rgb(187, 187, 187);
+    margin-left: 5%;
 }
 
 .item:nth-child(6) {
@@ -217,6 +256,7 @@
     background: white;
     border-radius: 25px;
     height: 50vh;
+    box-shadow: 5px 7px 10px 0px rgb(187, 187, 187);
 }
 
 .item:nth-child(7) {
@@ -225,13 +265,38 @@
     background: white;
     border-radius: 25px;
     height: 50vh;
+    box-shadow: 5px 7px 10px 0px rgb(187, 187, 187);
+    margin-right: 5%;
 }
 
+/* Hobby 문구 */
 .item:nth-child(8) {
     grid-column: 1 / 4;
     grid-row : 6 / 7;
-    background: white;
     border-radius: 25px;
+    font-size: 40px;
+    font-family: "Black Han Sans";
+    color: brown;
+    text-align: center;
+    justify-content: center;
+    margin-top: 5%;
+}
+
+/* Hobby 컨텐츠 */
+.item:nth-child(9) {
+    grid-column: 1 / 4;
+    grid-row : 7 / 8;
+    margin-top: 5%;
+}
+
+.item:nth-child(10) {
+    grid-column: 1 / 4;
+    grid-row : 8 / 9;
+}
+
+.item:nth-child(11) {
+    grid-column: 1 / 4;
+    grid-row : 9 / 10;
 }
 
 .item h2 {
@@ -248,6 +313,47 @@
     font-family: "AppleSDGothicNeoM00";
     font-size: 22px;
     line-height: 45px;
+}
+
+.ld_container ul, .ld_container li {
+    background-color: white;
+    margin-left: 1%;
+    font-family: "AppleSDGothicNeoM00";
+    font-size: 17px;
+    line-height: 45px;
+}
+
+/* Hobby 사진 ---------------------------------------------*/
+.photoMe, .riding {
+    width: 400px;
+    height: 500px;
+    border-radius: 30px;
+    margin-left: 25%;
+}
+
+.football {
+    width: 450px;
+    height: 450px;
+    border-radius: 30px;
+    margin-left: 45%;
+    margin-top: 3%;
+}
+
+#it9 span, #it11 span {
+    font-family: "Indie Flower";
+    font-size: 50px;
+    color: brown;
+    margin-left: 15%;
+    background-color: var(--body);
+}
+
+#it10 span {
+    font-family: "Indie Flower";
+    font-size: 50px;
+    color: brown;
+    position: relative;
+    left: 27%;
+    background-color: var(--body);
 }
 
 /* 랜딩페이지 하단부 ---------------------------------------*/
@@ -267,12 +373,6 @@ footer h2 {
 
 
 /* 임시 처리 -----------------------------------------------*/
-.name {
-    text-align: right;
-    padding: 5%;
-}
-
-
 table, th, td {
     border: 5px solid white;
     border-collapse: collapse;
