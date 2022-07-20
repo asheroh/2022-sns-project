@@ -1,0 +1,206 @@
+@charset "UTF-8";
+@font-face {
+    font-family: "AppleSDGothicNeoB";
+    src: url(../font/AppleSDGothicNeoB.ttf);
+}
+
+@font-face {
+    font-family: "AppleSDGothicNeoLB";
+    src: url(../font/AppleSDGothicNeoL.ttf);
+}
+
+@font-face {
+    font-family: "AppleSDGothicNeoM";
+    src: url(../font/AppleSDGothicNeoM.ttf);
+}
+
+@font-face {
+    font-family: "AppleSDGothicNeoEB";
+    src: url(../font/AppleSDGothicNeoEB.ttf);
+}
+
+@font-face {
+    font-family: "Pacifico";
+    src: url(../font/Pacifico-Regular.ttf);
+}
+
+@font-face {
+    font-family: "Indie Flower";
+    src: url(../font/IndieFlower-Regular.ttf);
+}
+
+@font-face {
+    font-family: "Black Han Sans";
+    src: url(../font/BlackHanSans-Regular.ttf);
+}
+
+html, body{
+    width: 100vw;
+    height: 100vh;
+}
+
+:root {
+    --body: #d4eefb;
+}
+
+/* 로그인 페이지 ------------------------------*/
+.login{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    background-color: #ECF0FF;
+    font-family: 'AppleSDGothicNeoB';
+    margin: 0;
+}
+
+.login_logo{
+    font-family: "Indie Flower";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 70px;
+    line-height: 30px;
+    display: flex;
+    align-items: center;
+    color: brown;
+}
+
+#login_id, #login_password{
+    background-color: #FBF9FF;
+    width: 500px;
+    font-family: "AppleSDGothicNeoM";
+    border: 1px solid #8F9BB3;
+    border-radius: 5px;
+    height: 50px;
+}
+
+#login_submit{
+    width: 500px;
+    font-family: "AppleSDGothicNeoM";
+    background-color: #5d8fdf;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    height: 50px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.logout{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    font-size: 30px;
+    background-color: #ECF0FF;
+    font-family:"AppleSDGothicNeoM";
+}
+
+.logout button {
+    width: 500px;
+    height: 50px;
+    font-family: "AppleSDGothicNeoM";
+    background-color: #5d8fdf;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.social_login{
+    font-family: 'AppleSDGothicNeoB';
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    background-color: #ECF0FF;
+
+}
+
+#social_login_continue{
+    font-family: 'AppleSDGothicNeoB';
+}
+
+
+/* 회원가입 폼 ------------------------------------*/
+.signup h1 {
+    font-family: "Indie Flower";
+    font-size: 100px;
+    color: brown;
+    margin-bottom: 0;
+}
+
+.signup h2 {
+    font-family: 'AppleSDGothicNeoB';
+}
+
+.signup{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90%;
+    width: 100vw;
+    background-color: var(--body);
+    font-family: 'AppleSDGothicNeoB';
+}
+
+.signup_top{
+    margin-left: auto;
+    margin-right: auto;
+    color: #222B45;
+    text-align: center;
+}
+
+.signup_form{
+    display: flex;
+    justify-content: center;
+    /* background-color: white; */
+    border-radius: 15px;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+}
+
+.signup_form label{
+    display: inline-block;
+    width: 200px;
+    font-size: 18px;
+    font-family: 'AppleSDGothicNeoM';
+}
+
+.signup_form input{
+    height: 40px;
+    width: 300px;
+    border: 1px solid #8F9BB3;
+    border-radius: 5px;
+    font-family: 'AppleSDGothicNeoM';
+    text-align: center;
+}
+
+.signup_form button{
+    display: flex;
+    font-family: 'AppleSDGothicNeoM';
+    background-color: #5d8fdf;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin: 7% auto 10px auto;
+    font-size: 20px;
+    cursor: pointer;
+    width: 520px;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+}

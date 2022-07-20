@@ -1,0 +1,55 @@
+.mbti_grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 270px;
+    row-gap: 60px;
+    column-gap: 20px;
+}
+
+/* MBTI 그림 - 코멘트 삽입 */
+.mbti_item:nth-child(1) {
+    grid-column: 1 / 3;
+    grid-row : 1 / 2;
+    font-size: 42px;
+    font-family: "Black Han Sans";
+    color: brown;
+    text-align: center;
+    margin-top: 10%;
+}
+
+/* 특징 테이블 */
+.mbti_item:nth-child(2) {
+    grid-column: 1 / 3;
+    grid-row : 2 / 3;
+    border-radius: 25px;
+    text-align: center;
+    justify-content: center;
+    margin-top: 10%;
+    margin-top: 0;
+}
+
+/* mbti 이미지 */
+#mbti_it1 img {
+    width: 400px;
+    height: 550px;
+    box-shadow: 5px 7px 20px 0px rgb(156, 156, 156);
+    margin-right: 10%;
+    margin-bottom: 5%;
+}
+
+/* 테이블 */
+table, th, td {
+    border: 5px solid white;
+    border-collapse: collapse;
+    margin: auto;
+    width: 1000px;
+    height: 50px;
+}
+
+th, td {
+    background-color: #abd6ec;
+}
+
+.table_1, .table_2 {
+    text-align: center;
+}
