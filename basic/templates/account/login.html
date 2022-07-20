@@ -1,27 +1,41 @@
 
 {% extends "account/base.html" %}
 
-{% load i18n %}
+<!-- {% load i18n %} -->
 {% load account socialaccount %}
 {% providers_media_js %}
 
-{% block head_title %}{% trans "Sign In" %}{% endblock %}
-
+<!-- {% block head_title %}{% trans "Sign In" %}{% endblock %} -->
+{% load static %}
 {% block content %}
+<style>
+    * {
+        background-color: #d4eefb;
+        font-family: "AppleSDGothicNeoB";
+    }
+</style>
 
-<h1>{% trans "Sign In" %}</h1>
+<h1 style="text-align: center; font-size: 48px;">{% trans "Sign In" %}</h1>
 
 {% get_providers as socialaccount_providers %}
 
 {% if socialaccount_providers %}
-<p>{% blocktrans with site.name as site_name %}Please sign in with one
+
+<p style="text-align: center;">{% blocktrans with site.name as site_name %}Please sign in with one
 of your existing third party accounts. Or, <a href="{{ signup_url }}">sign up</a>
 for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
 
-<div class="socialaccount_ballot">
+<div class="socialaccount_ballot" style="text-align: center;">
 
-    <ul class="socialaccount_providers">
-    {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+    <ul class="socialaccount_providers" style="list-style: none;">
+    <!-- {% include "socialaccount/snippets/provider_list.html" with process="login" %} -->
+    <a href="{% provider_login_url 'google' %}" style="text-decoration:none; display: inline-block; width: 250px;">
+        <div id = "google_login" 
+        style="height:30px; display:flex; align-items: center; justify-content: center; border: #252525 1px solid;  border-radius: 5px;
+        font-size: 15px; background-color:white; margin-right: 0px; color:#252525; height: 35px;">
+            <img src = "{% static 'images/google_icon.png' %}" width="30px" height="30px" style="background-color: white;"> &nbsp 구글 계정으로 로그인
+        </div>
+    </a>
     </ul>
 
     <div class="login-or">{% trans 'or' %}</div>
@@ -35,13 +49,17 @@ for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
 <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
 {% endif %}
 
-<form class="login" method="POST" action="{% url 'account_login' %}">
+<form class="login" method="POST" action="{% url 'account_login' %}" style="text-align: center;">
     {% csrf_token %}
     {{ form.as_p }}
     {% if redirect_field_value %}
     <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
     {% endif %}
+
+    <!-- 비밀번호를 잊으셨나요? -->
     <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+
+    <!-- 로그인 버튼 -->
     <button class="primaryAction" type="submit">{% trans "Sign In" %}</button>
 </form>
 

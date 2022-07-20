@@ -66,6 +66,14 @@
     font-family: "AppleSDGothicNeoB";
 }
 
+.goupbtn:hover {
+    box-shadow:
+        -7px -7px 20px 0px #fff9,
+        -4px -4px 5px 0px #fff9,
+        7px 7px 20px 0px #fff9,
+        4px 4px 5px 0px #fff9;
+}
+
 /* 랜딩페이지 메인-----------------------------------------*/
 .landing {
     min-height: 100vh;
