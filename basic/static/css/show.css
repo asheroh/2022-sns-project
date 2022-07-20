@@ -187,7 +187,7 @@
 .ld_container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 50vh 100px 130vh 100px 1fr 100px 1fr 1fr 1fr;
+    grid-template-rows: 50vh 100px 130vh 100px 1fr 100px 1fr 1fr 1fr 0.7fr 0.5fr;
     row-gap: 60px;
     column-gap: 20px;
 }
@@ -307,6 +307,27 @@
     grid-row : 9 / 10;
 }
 
+.item:nth-child(12) {
+    grid-column: 1 / 4;
+    grid-row : 10 / 11;
+    border-radius: 25px;
+    font-size: 40px;
+    font-family: "Black Han Sans";
+    color: brown;
+    text-align: center;
+    justify-content: center;
+    margin-top: 5%;
+}
+
+.item:nth-child(13) {
+    grid-column: 1 / 4;
+    grid-row : 11 / 12;
+    background-color: white;
+    border-radius: 30px;
+    text-align: center;
+    line-height: 30px;
+}
+
 .item h2 {
     text-align: center;
     background-color: white;
@@ -337,6 +358,7 @@
     height: 500px;
     border-radius: 30px;
     margin-left: 25%;
+    box-shadow: 5px 7px 20px 0px rgb(156, 156, 156);
 }
 
 .football {
@@ -345,6 +367,7 @@
     border-radius: 30px;
     margin-left: 45%;
     margin-top: 3%;
+    box-shadow: 5px 7px 20px 0px rgb(156, 156, 156);
 }
 
 #it9 span, #it11 span {
@@ -366,34 +389,10 @@
 
 /* 랜딩페이지 하단부 ---------------------------------------*/
 
-.landing_btm {
-    position: relative;
-    text-align: center;
-    font-size: 18px;
-    background-color: #99b3af;
-}
-
-footer h2 {
-    font-family: 'Indie Flower';
-    color:brown;
-    background-color: #99b3af;
-}
-
-
-/* 임시 처리 -----------------------------------------------*/
-table, th, td {
-    border: 5px solid white;
-    border-collapse: collapse;
-    margin: auto;
-    width: 700px;    
-}
-
-
-th, td {
-    background-color: #c3dcd8;
-}
-
-
-.table_1, .table_2 {
-    text-align: center;
+#it13 h1 {
+    font-family: "Black Han Sans";
+    font-size: 40px;
+    color: brown;
+    background-color: white;
+    margin-top: 1%;
 }
