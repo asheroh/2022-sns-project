@@ -1,0 +1,31 @@
+{% extends "account/base.html" %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "Signup" %}{% endblock %}
+
+{% load static %}
+
+{% block content %}
+<link rel = "stylesheet" href = "{% static 'css/login.css' %}?after">
+
+<div class = "signup">
+    <div class = "signup_body">
+        <div class="signup_top">
+            <h1>Hello, Lion !</h1>
+            <h2>원활한 사이트 사용을 위해 회원가입을 진행해주세요!</h2>
+        </div>
+        <div class = "signup_form">
+            <form id="signup_form" method="post" action="{% url 'account_signup' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+
+            {% if redirect_field_value %}
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+            {% endif %}
+            <button type="submit"> 가입하기 </button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
