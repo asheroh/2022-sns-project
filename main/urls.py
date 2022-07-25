@@ -1,6 +1,7 @@
 from django.urls import path
 from .views import *
 from .views import update_comment, delete_comment
+# from . import views
 
 app_name = "main"
 urlpatterns = [
@@ -19,7 +20,16 @@ urlpatterns = [
          update_comment, name="update_comment"),
     path('<str:post_id>/<str:comment_id>/edit_comment',
          edit_comment, name="edit_comment"),
+
     # comment UD 시에는 post와 comment id 둘 다 필요
     path('<str:comment_id>/delete_comment',
          delete_comment, name="delete_comment"),
+
+    # like, dislike toggle
+    path('like_toggle/<int:post_id>/', like_toggle, name="like_toggle"),
+    path('dislike_toggle/<int:post_id>/',
+         dislike_toggle, name="dislike_toggle"),
+
+    # 좋아요 목록
+    path('my_like/<int:user_id>/', my_like, name="my_like"),
 ]

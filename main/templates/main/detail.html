@@ -3,31 +3,94 @@
 {% load static %}
 
 {% block content %}
+<style>
+    * {
+        text-align: center;
+    }
+</style>
 
-    <h1>{{post.title}}</h1>
-{% if post.writer %}
+<h1 style="font-family: 'AppleSDGothicNeoEB';">{{post.title}}</h1>
+<div>
+    {% if post.writer %}
     {% if 'user' in post.writer.username %}
-    <h3>작성자 : {{ post.writer.last_name }} {{ post.writer.first_name }}</h3>
+        <h3 style="text-align: right; margin-right: 3%; font-family: AppleSDGothicNeoM;">작성자 : {{ post.writer.last_name }} {{ post.writer.first_name }}</h3>
     {% else %}
-    <h3>작성자 : {{ post.writer }}</h3>
+        <h3 style="text-align: right; margin-right: 3%; font-family: AppleSDGothicNeoM;">작성자 : {{ post.writer }}</h3>
     {% endif %}
 {% else %}
-    <h3>작성자 : 알 수 없음</h3>
+        <h3 style="text-align: right; margin-right: 3%; font-family: AppleSDGothicNeoM;">작성자 : 알 수 없음</h3>
 {% endif %}
-    날짜 : {{post.pub_date}}
+    <div style="text-align: right; margin-right: 3%; font-family: AppleSDGothicNeoM;">
+        날짜 : {{post.pub_date}}
+    </div>
+</div>
+
 <hr>
+
 {% if post.image %}
-<p><img src="{{post.image.url}}" alt="사진"></p>
+<p><img src="{{post.image.url}}" alt="사진" style="width: 400px; height: auto;"></p>
 {% endif %}
-<p>{{post.body}}</p>
-    <a href="{% url 'main:edit' post.id %}">수정하기</a>
-    <a href="{% url 'main:delete' post.id %}">삭제하기</a>
+<p style="font-family: AppleSDGothicNeoM; font-size: 24px;">{{post.body}}</p>
+
+
+<div class="interaction_button" style="display: flex; flex-direction: row; justify-content:center;">
+    <!-- 좋아요 버튼 -->
+    <span href="#" class="like" name ="{{post.id}}" value="Like" style="margin-right: 3%;">
+        {% if user in post.like_user_set.all %}
+        <div class="alt-service-icon">
+            <i class="fas fa-heart" id ="like-icon" style="color: red; font-size: 27px;"></i>
+        </div>
+        {% else %}
+        <div class="alt-service-icon">
+            <i class="far fa-heart" id ="like-icon" style="color: red; font-size: 27px;"></i>
+        </div>
+        {% endif %}
+            <span id="count-{{ post.id }}" class="alt-services-title font-alt">
+                Like
+            {% if post.like_count == 0 %}
+                0개
+            {% else %}
+                {{ post.like_count }}개
+            {% endif %}
+            </span>
+    </span>
+
+    <!-- 싫어요 버튼 -->
+    <span href="#" class="dislike" name ="{{post.id}}" value="Dislike">
+        {% if user in post.dislike_user_set.all %}
+        <div class="alt-service-icon">
+            <i class="fas fa-heart" id ="dislike-icon" style="color: blue; font-size: 27px;"></i>
+        </div>
+        {% else %}
+        <div class="alt-service-icon">
+            <i class="far fa-heart" id ="dislike-icon" style="color: blue; font-size: 27px;"></i>
+        </div>
+        {% endif %}
+            <span id="count2-{{ post.id }}" class="alt-services-title font-alt">
+                Dislike
+            {% if post.dislike_count == 0 %}
+                0개
+            {% else %}
+                {{ post.dislike_count }}개
+            {% endif %}
+            </span>
+    </span>
+</div>
+
+<br>
+{% if user == post.writer %}
+    <a href="{% url 'main:edit' post.id %}"><input type="button" value="수정" style="margin-right: 1%; width: 100px; height: 35px;"></a>
+    <a href="{% url 'main:delete' post.id %}"><input type="button" value="삭제" style="width: 100px; height: 35px;"></a>
+{% endif %}
+
 <br><hr>
 <div>
     <form action="{%url 'main:create_comment' post.id%}" method="POST">
     {%csrf_token%}
-    <textarea name="content" placeholder="댓글 입력"></textarea>
-    <input type="submit" value="확인">
+    <div style="display: flex; flex-direction: row;">
+        <textarea name="content" placeholder="댓글 입력" style="width: 90%; height: 75px; text-align: left; margin: 0 1%;"></textarea>
+        <input type="submit" value="확인" style="width: 75px; height: 75px">
+    </div>
     </form>
 </div>
 
@@ -44,16 +107,83 @@
             {% comment %}
             <a href="{% url 'main:update_comment' comment.id %}"><input type="button" value="수정"></a> 
             {% endcomment %}
+            {% if user == comment.writer %}
             <a href="{%url 'main:edit_comment' post.id comment.id%}"><input type="button" value="수정"></a>
             <a href="{%url 'main:delete_comment' comment.id%}"><input type="button" value="삭제"></a>
+            {% endif %}
             <br><br>
             {% endif %}
-            <p id="comment_time">댓글 작성시간 : {{comment.pub_date}}</p>
+            <!-- <p id="comment_time">댓글 작성시간 : {{comment.pub_date}}</p> -->
             <hr>
         </div>
     {% endfor %}
 </div>
 
-<h5><a href="{% url 'main:posts' %}">목록</a></h5>
+<h5><a href="{% url 'main:posts' %}"><input type="button" value="게시글 목록" style="width: 400px; height: 50px; background-color: #6e76d0; color: white; margin: 1% 0;"></a></h5>
 
+<!-- 5. ajax 적용하기-->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script>
+    $(".like").click(function(){
+        var pk=$(this).attr('name')
+        $.ajax({
+            type:'POST',
+            url:"{% url 'main:like_toggle' post.pk %}",
+            data:{'pk':pk,'csrfmiddlewaretoken':'{{csrf_token}}'},
+            dataType:'json',
+            success:function(response){
+                if(response.like_count==null){
+                    alert('로그인이 필요합니다.');
+                    window.location.replace('/accounts/login/');
+                }
+                else{
+                    if(response.result=='like'){
+                        $('#like-icon').removeClass();
+                        $('#like-icon').addClass('fas fa-heart');
+                    }
+                    else{
+                        $('#like-icon').removeClass();
+                        $('#like-icon').addClass('far fa-heart');
+                    }
+                    $('#count-{{post.id}}').html('Like' + response.like_count + "개");
+                }
+            },
+            error:function(request, status, error){
+                alert("로그인이 필요합니다.")
+                alert('code:'+request.status+'\n'+'message:'+request.responseText+"\n"+"error:"+error);
+            },
+        })
+    })
+
+    $(".dislike").click(function(){
+        var pk=$(this).attr('name')
+        $.ajax({
+            type:'POST',
+            url:"{% url 'main:dislike_toggle' post.pk %}",
+            data:{'pk':pk,'csrfmiddlewaretoken':'{{csrf_token}}'},
+            dataType:'json',
+            success:function(response){
+                if(response.dislike_count==null){
+                    alert('로그인이 필요합니다.');
+                        window.location.replace('/accounts/login/');
+                }
+                else{
+                    if(response.result=='dislike'){
+                        $('#dislike-icon').removeClass();
+                        $('#dislike-icon').addClass('fa-solid fa-heart-crack');
+                    }
+                    else{
+                        $('#dislike-icon').removeClass();
+                        $('#dislike-icon').addClass('far fa-heart');
+                    }
+                    $('#count2-{{post.id}}').html('Dislike'+response.dislike_count+"개");
+                }
+            },
+            error:function(request, status, error){
+                alert("로그인이 필요합니다.")
+                alert('code:'+request.status+'\n'+'message:'+request.responseText+"\n"+"error:"+error);
+            },
+        })
+    })
+</script>
 {% endblock %}
