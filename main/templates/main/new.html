@@ -17,7 +17,7 @@
 
     form {
         position: relative;
-        top: 20vh;
+        top: 6vh;
     }
 
     input {
@@ -53,15 +53,23 @@
         position: absolute;
         left: 14%;
     }
+
+    h1 {
+        text-align: center;
+        font-family: "AppleSDGothicNeoB";
+        color: #6e76d0;
+        margin-top: 5%;
+    }
 </style>
 
+<h1>방명록 작성</h1>
 <div class="container">
     <form action="{%url 'create'%}" method="post" enctype="multipart/form-data">
         {%csrf_token%}
         <p>제목 : <input type="text" name="title" placeholder=" 제목을 입력해주세요."></p>
         <!-- <p>작성자 : <input type="text" name="writer"></p> -->
         <p>사진 : <label class="input-file-button" for="input_file">업로드<input type="file" id="input_file" name="image" style="display:none;"></label></p>
-        <p>내용 : <textarea type="text" name="body" id="" cols="30" rows="10" placeholder=" 내용을 입력해주세요."></textarea></p>
+        <p>내용 : <textarea type="text" name="body" id="" cols="30" rows="10" placeholder=" 준서에게 하고 싶은 말을 입력해주세요."></textarea></p>
         <button type="submit">등록</button>
     </form>
 </div>

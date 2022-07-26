@@ -1,14 +1,47 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+<style>
+    * {
+        text-align: center;
+    }
+
+    .container {
+        margin-top: 5%;
+        border: 3px solid #d4dbf3;
+        border-radius: 15px;
+        min-height: 70vh;
+    }
+
+    h1 {
+        font-family: "Black Han Sans";
+        color: brown;
+        margin-top: 3%;
+    }
+
+    h3 {
+        font-family: "AppleSDGothicNeoM";
+        color: brown;
+        margin: 2% 0;
+    }
+
+    input {
+        width: 70%;
+        height: 40px;
+        border: 3px solid #d4dbf3;
+        border-radius: 15px;
+    }
+</style>
+
 
 <div class="container">
-    <h1>{{user.username}}</h1>
+    <h1>사용자명: {{user.username}}</h1>
+    <br><hr>
     <div>
+        <h3>{방명록 작성글 목록}</h3>
     {% for post in posts %}
-
-    <a href="{% url 'main:detail' post.id %}">{{post.title}}</a>
-    <hr>
+        <a href="{% url 'main:detail' post.id %}"><input type="button" value="{{post.title}}"/></a>
+        <hr>
 
     {% endfor %}
     </div>
