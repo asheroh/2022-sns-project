@@ -4,7 +4,6 @@
 {% load static %}
 <link rel = "stylesheet" href = "{% static 'css/login.css' %}?after">
 
-
 <div class = "login">
 	<form method="POST" action="{% url 'account_login' %}" style="display: block;">
 		{% csrf_token %} 

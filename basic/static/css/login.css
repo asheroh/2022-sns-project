@@ -124,7 +124,6 @@ html, body{
     height: 100%;
     width: 100%;
     background-color: #ECF0FF;
-
 }
 
 #social_login_continue{
@@ -135,7 +134,7 @@ html, body{
 /* 회원가입 폼 ------------------------------------*/
 .signup h1 {
     font-family: "Indie Flower";
-    font-size: 100px;
+    font-size: 120px;
     color: brown;
     margin-bottom: 0;
 }
@@ -149,9 +148,9 @@ html, body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 90%;
-    width: 100vw;
-    background-color: var(--body);
+    height: 100%;
+    width: 100%;
+    background-color: #ECF0FF;
     font-family: 'AppleSDGothicNeoB';
 }
 

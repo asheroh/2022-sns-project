@@ -3,10 +3,42 @@
 {% load i18n %}
 
 
-{% block content %}
+{% block content %} {% load static %}
+<style>
+    * {
+        background-color: #d4eefb;
+    }
 
-<div class = "logout">
-    <p>정말 로그아웃 하시겠습니까?</p>
+    h1 {
+        font-size: 40px;
+        color: brown;
+    }
+
+    button {
+        width: 520px;
+        height: 50px;
+        margin-top: 1%;
+        background-color: brown;
+        color: white;
+        font-size: 20px;
+        border-radius: 15px;
+        cursor: pointer;
+        transition: all .3s;
+    }
+    
+    button:hover {
+        box-shadow:
+        -7px -7px 20px 0px #fff9,
+        -4px -4px 5px 0px #fff9,
+        7px 7px 20px 0px #fff9,
+        4px 4px 5px 0px #fff9;
+    }
+</style>
+
+<link rel = "stylesheet" href = "{% static 'css/login.css' %}?after">
+
+<div style="text-align: center; position: relative; top: 40vh;">
+    <h1>정말 로그아웃 하시겠습니까?</h1>
 
     <form method="post" action="{% url 'account_logout' %}">
         {% csrf_token %}
