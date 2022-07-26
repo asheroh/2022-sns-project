@@ -101,7 +101,7 @@
 /* 랜딩페이지 메인 화살표 ----------------------------------*/
 .arrow a span {
     position: absolute;
-    top: 700px;
+    top: 80%;
     left: 50%;
     width: 24px;
     height: 24px;

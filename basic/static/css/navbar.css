@@ -35,10 +35,10 @@
 }
 
 nav {
-    font-family: "Indie Flower";
-    font-size: 24px;
-    
+    font-family: "AppleSDGothicNeoLB";
+    font-size: 26px;
 }
+
 
 .nav-item a, .collapse, .nav-item, .container-fluid, .navbar {
     background-color: #d4dbf3;
@@ -51,3 +51,4 @@ nav {
         7px 7px 20px 0px #fff9,
         4px 4px 5px 0px #fff9;
 }
+

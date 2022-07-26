@@ -20,7 +20,7 @@
                 Dropdown
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="{% url 'main:posts' %}">게시글 목록</a></li>
+                <li><a class="dropdown-item" href="{% url 'main:posts' %}">방명록</a></li>
                 <li><a class="dropdown-item" href="{% url 'main:new' %}">게시글 작성</a></li>
                 <li><a class="dropdown-item" href="{%url 'main:showmbti' %}">MBTI</a></li>
                 <li><hr class="dropdown-divider"></li>
@@ -35,13 +35,13 @@
             </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                 {% if user.is_authenticated %}
-                <li><a class="dropdown-item" href="{% url 'account_logout' %}">로그아웃</a></li>
+                <li><a class="dropdown-item" href="{% url 'account_logout' %}">LogOut</a></li>
                 <li><a class="dropdown-item" href="{% url 'users:mypage' %}">Mypage</a></li>
                 <!-- 좋아요 한 목록 링크 추가 -->
-                <li><a class="dropdown-item" href="{% url 'main:my_like' request.user.id %}">좋아요 목록</a></li>
+                <li><a class="dropdown-item" href="{% url 'main:my_like' request.user.id %}">LikeList</a></li>
                 {% else %}
-                <li><a class="dropdown-item" href="{% url 'account_login' %}">로그인</a></li>
-                <li><a class="dropdown-item" href="{% url 'account_signup' %}">회원가입</a></li>
+                <li><a class="dropdown-item" href="{% url 'account_login' %}">LogIn</a></li>
+                <li><a class="dropdown-item" href="{% url 'account_signup' %}">SignUp</a></li>
                 {% endif %}
                 </ul>
             </li>

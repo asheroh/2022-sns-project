@@ -80,7 +80,7 @@ html, body{
 #login_submit{
     width: 500px;
     font-family: "AppleSDGothicNeoM";
-    background-color: #5d8fdf;
+    background-color: #6e76d0;
     color: white;
     border: none;
     border-radius: 5px;
@@ -106,7 +106,7 @@ html, body{
     width: 500px;
     height: 50px;
     font-family: "AppleSDGothicNeoM";
-    background-color: #5d8fdf;
+    background-color: #6e76d0;
     color: white;
     border: none;
     border-radius: 5px;
@@ -191,7 +191,7 @@ html, body{
 .signup_form button{
     display: flex;
     font-family: 'AppleSDGothicNeoM';
-    background-color: #5d8fdf;
+    background-color: #6e76d0;
     color: white;
     border: none;
     border-radius: 5px;

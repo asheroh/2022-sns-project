@@ -3,14 +3,67 @@
 {% load static %}
 
 {% block content %}
+<style>
+    .container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    
+    p {
+        font-size: 20px;
+        font-family: "AppleSDGothicNeoLB";
+    }
 
-<form action="{%url 'create'%}" method="post" enctype="multipart/form-data">
-    {%csrf_token%}
-    <p>제목 : <input type="text" name="title"></p>
-    <!-- <p>작성자 : <input type="text" name="writer"></p> -->
-    <p>사진 : <input type="file" name="image"></p>
-    <p>내용 : <textarea type="text" name="body" id="" cols="30" rows="10"></textarea></p>
-    <button type="submit">제출</button>
-</form>
+    form {
+        position: relative;
+        top: 20vh;
+    }
+
+    input {
+        width: 50vw;
+        height: 50px;
+        text-align: left;
+        border-radius: 7px;
+    }
+
+    .input-file-button{
+        padding: 6px 25px;
+        background-color:#6e76d0;
+        border-radius: 4px;
+        color: white;
+        cursor: pointer;
+    }
+
+    textarea {
+        width: 50vw;
+        text-align: left;
+        border-radius: 7px;
+    }
+
+    button {
+        width: 40vw;
+        height: 50px;
+        padding: 6px 25px;
+        background-color:#6e76d0;
+        border: none;
+        border-radius: 4px;
+        color: white;
+        font-size: 20px;
+        position: absolute;
+        left: 14%;
+    }
+</style>
+
+<div class="container">
+    <form action="{%url 'create'%}" method="post" enctype="multipart/form-data">
+        {%csrf_token%}
+        <p>제목 : <input type="text" name="title" placeholder=" 제목을 입력해주세요."></p>
+        <!-- <p>작성자 : <input type="text" name="writer"></p> -->
+        <p>사진 : <label class="input-file-button" for="input_file">업로드<input type="file" id="input_file" name="image" style="display:none;"></label></p>
+        <p>내용 : <textarea type="text" name="body" id="" cols="30" rows="10" placeholder=" 내용을 입력해주세요."></textarea></p>
+        <button type="submit">등록</button>
+    </form>
+</div>
 
 {% endblock %}
