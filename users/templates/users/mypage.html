@@ -40,7 +40,7 @@
     <div>
         <h3>{방명록 작성글 목록}</h3>
     {% for post in posts %}
-        <a href="{% url 'main:detail' post.id %}"><input type="button" value="{{post.title}}"/></a>
+        제목 : <a href="{% url 'main:detail' post.id %}"><input type="button" value="{{post.title}}"/></a>
         <hr>
 
     {% endfor %}
