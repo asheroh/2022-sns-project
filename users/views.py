@@ -9,7 +9,9 @@ def mypage(request, id):
     # 로그인한 유저이름과 글 작성자 이름이 동일한 글 필터링
     context = {
         'user' : user,
-        'posts' : Post.objects.filter(writer=user)
+        'posts' : Post.objects.filter(writer=user),
+        'followings': user.profile.followings.all(),
+        'followers': user.profile.followers.all(),
     }
     return render(request, 'users/mypage.html', context)
 

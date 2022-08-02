@@ -36,7 +36,7 @@
 
 <div class="container">
     <h1>
-        {{ user.username }}
+        <h1>사용자명: {{user.username}}</h1>
         {% if request.user != user %}<!--다른 사람의 프로필에 들어온 경우에만 팔로우/언팔로우 버튼이 보임-->
             {% if request.user.profile in user.profile.followers.all %}
                 <a href="{% url 'users:follow' user.id %}"><button type="button" class="btn btn-outline-info">언팔로우</button></a>
@@ -44,30 +44,27 @@
                 <a href="{% url 'users:follow' user.id %}"><button type="button" class="btn btn-info">팔로우</button></a>
             {% endif %}
         {% endif %}
+    </h1>
 
 
-
-    <div class="container">
+    <div class="container2">
         <h3>팔로워{{user.profile.followers.count}}명</h3>
         {% for follower in user.profile.followers.all %}
-            <a href="{% url 'users:mypage' follower.user.id %}">{{ follower.user.username }}</a>
+            <h4><a href="{% url 'users:mypage' follower.user.id %}">{{ follower.user.username }}</a></h4>
         {% endfor %}
-
+<hr>
         <h3>팔로잉{{user.profile.followings.count}}명</h3>
         {% for following in user.profile.followings.all %}
-            <a href="{% url 'users:mypage' following.user.id %}">{{ following.user.username }}</a>
+            <h4><a href="{% url 'users:mypage' following.user.id %}">{{ following.user.username }}</a></h4>
         {% endfor %}
     </div>
-    </h1><hr>
-
-    <h1>사용자명: {{user.username}}</h1>
     <br><hr>
     <div>
         <h3>{방명록 작성글 목록}</h3>
     {% for post in posts %}
-        제목 : <a href="{% url 'main:detail' post.id %}"><input type="button" value="{{post.title}}"/></a>
-        <hr>
-
+        <div style="margin-bottom: 2%;">
+            제목 : <a href="{% url 'main:detail' post.id %}"><input type="button" value="{{post.title}}"/></a>
+        </div>
     {% endfor %}
     </div>
 </div>
